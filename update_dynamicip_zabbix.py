@@ -24,7 +24,7 @@ except Exception as err:
 
 
 '''nome do hostname configurado na interface web do zabbix'''
-host_name = "" #host with dynamic ip
+host_name = ""
 
 
 """
@@ -47,12 +47,10 @@ req_interface_id = zapi.hostinterface.get(filter={"hostid": host_id})
 interfaceid = (req_interface_id[0]['interfaceid'])
 
 
-
-
 """
 pingando ddns para sabermos o ip
 """
-ddns_host = "metapf.ddns.net"
+ddns_host = "no-ip register"
 host_ping = pyping.ping(ddns_host)
 ip_public = host_ping.destination_ip #retornará exatamente o ip destino, não precisando filtrar com regex por exemplo
 
